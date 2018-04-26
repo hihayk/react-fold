@@ -1,0 +1,44 @@
+{
+  "name": "fold",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "start-storybook -p 9001 -c .storybook",
+    "test": "echo \"?\" && exit 1",
+    "lint": "standard | snazzy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hihayk/fold.git"
+  },
+  "keywords": [
+    "layout",
+    "react",
+    "design",
+    "system",
+    "ui"
+  ],
+  "author": "Hayk An <https://github.com/hihayk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hihayk/fold/issues"
+  },
+  "homepage": "https://github.com/hihayk/fold#readme",
+  "dependencies": {
+    "@storybook/addon-knobs": "^3.4.2",
+    "@storybook/addon-options": "^3.4.2",
+    "@storybook/react": "^3.4.2",
+    "babel-core": "^6.26.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "gh-pages": "^1.1.0",
+    "husky": "^0.14.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "semantic-release": "^15.1.7",
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1",
+    "storybook": "^1.0.0",
+    "webpack": "^4.6.0"
+  }
+}
