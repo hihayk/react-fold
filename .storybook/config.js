@@ -1,8 +1,15 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { setOptions } from '@storybook/addon-options'
-import styled from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import DemoGrid from '../src/demo/demo-grid'
+
+injectGlobal`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`
 
 const StoryWrapper = styled.div`
   position: relative;
@@ -41,7 +48,7 @@ const GridToggle = styled.div`
   }
 `
 const StoryContainer = styled.div`
-  padding: 32px;
+  padding: 0;
 
   .StoryLayout {
     margin: -32px;
