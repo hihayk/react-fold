@@ -1,0 +1,37 @@
+language: node_js
+
+node_js:
+  - "8"
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+    - $HOME/.nvm
+    - $HOME/.npm
+
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+
+install:
+  - yarn
+
+script:
+  - yarn lint
+  - yarn test
+
+after_success:
+  - yarn semantic-release
+
+deploy:
+  provider: script
+  script: yarn deploy
+  skip_cleanup: true
+  on:
+    branch: master
+
+notifications:
+  email: false
