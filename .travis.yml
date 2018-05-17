@@ -14,17 +14,13 @@ cache:
     - $HOME/.npm
 
 before_install:
-  - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+  - yarn install:token
 
 install:
   - yarn
 
 script:
-  - yarn lint
-  - yarn test
-
-after_success:
-  - yarn semantic-release
+  - yarn build
 
 deploy:
   provider: script
@@ -32,6 +28,9 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
+
+after_success:
+  - npx semantic-release
 
 notifications:
   email: false

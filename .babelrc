@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "fileName": false
+      }
+    ]
+  ],
+  "presets": [
+    "env",
+    "stage-2",
+    "react"
+  ]
+}

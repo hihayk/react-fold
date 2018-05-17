@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf build",
+    "prebuild": "npm run clean",
+    "build": "babel src -d build --copy-files --ignore '**/*.example.js,**/demo/*' --source-maps",
     "start": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"?\" && exit 1",
-    "lint": "standard | snazzy"
+    "deploy": "storybook-to-ghpages --ci --host-token-env-variable=${GITHUB_TOKEN}",
+    "install:token": "echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc"
   },
   "repository": {
     "type": "git",
@@ -25,24 +29,33 @@
     "url": "https://github.com/hihayk/fold/issues"
   },
   "homepage": "https://github.com/hihayk/fold#readme",
-  "dependencies": {
+  "peerDependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^3.4.2",
+    "@storybook/addon-options": "^3.4.2",
     "@storybook/react": "^3.4.2",
+    "@storybook/storybook-deployer": "^2.3.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-plugin-styled-components": "^1.5.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "cz-conventional-changelog": "^2.1.0",
     "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "semantic-release": "^15.1.7",
-    "snazzy": "^7.1.1",
-    "standard": "^11.0.1",
     "storybook": "^1.0.0",
-    "webpack": "4.6.0"
+    "styled-components": "^3.2.6"
   },
-  "devDependencies": {
-    "@storybook/addon-knobs": "^3.4.2",
-    "@storybook/addon-options": "^3.4.2",
-    "styled-components": "^3.2.6",
-    "webpack-cli": "^2.0.15"
+  "storybook-deployer": {
+    "gitUsername": "hihayk",
+    "gitEmail": "say@hihayk.com",
+    "commitMessage": "Deploy Storybook [skip ci]"
   }
 }
